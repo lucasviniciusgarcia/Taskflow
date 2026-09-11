@@ -4,6 +4,8 @@ const listaTarefas = document.getElementById("listaTarefas");
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 
 tarefasExistentes.forEach(function(tarefaAtual) {
+  const status = document.createElement("span");
+  
   const botaoExcluir2 = document.createElement("button");
   botaoExcluir2.textContent = "Excluir";
   tarefaAtual.appendChild(botaoExcluir2);
@@ -23,6 +25,14 @@ adicionar.addEventListener("click", function(event) {
     status.textContent = "Em andamento";
 novaTarefa.textContent = textoTarefa;
     novaTarefa.appendChild(status);
+    status.addEventListener("click", function(){
+      if(status.textContent === "Em andamento") {
+        status.textContent = "Concluída";
+      }
+      else {
+    status.textContent = "Em andamento";
+      }
+      });
   listaTarefas.appendChild(novaTarefa);
   tarefa.value = "";
     const botaoExcluir = document.createElement("button");
