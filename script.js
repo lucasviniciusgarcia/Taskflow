@@ -10,5 +10,8 @@ adicionar.addEventListener("click", function(event) {
 novaTarefa.textContent = textoTarefa;
   listaTarefas.appendChild(novaTarefa);
   tarefa.value = "";
+    const botaoExcluir = document.createElement("button");
+    botaoExcluir.textContent = "Excluir";
+    novaTarefa.appendChild(botaoExcluir);
   }
 });
