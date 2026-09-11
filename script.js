@@ -9,6 +9,9 @@ tarefasExistentes.forEach(function(tarefaAtual) {
   tarefaAtual.appendChild(botaoExcluir2);
   botaoExcluir2.addEventListener("click", function() {
     tarefaAtual.remove();
+    });
+  tarefaAtual.addEventListener("click", function(){
+    tarefaAtual.classList.add("Concluida");
   });
 });
 adicionar.addEventListener("click", function(event) {
