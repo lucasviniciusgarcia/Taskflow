@@ -13,5 +13,8 @@ novaTarefa.textContent = textoTarefa;
     const botaoExcluir = document.createElement("button");
     botaoExcluir.textContent = "Excluir";
     novaTarefa.appendChild(botaoExcluir);
+    botaoExcluir.addEventListener("click", function() {
+      novaTarefa.remove();
+  });
   }
 });
