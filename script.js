@@ -7,6 +7,9 @@ tarefasExistentes.forEach(function(tarefaAtual) {
   const botaoExcluir2 = document.createElement("button");
   botaoExcluir2.textContent = "Excluir";
   tarefaAtual.appendChild(botaoExcluir2);
+  botaoExcluir2.addEventListener("click", function() {
+    tarefaAtual.remove();
+  });
 });
 adicionar.addEventListener("click", function(event) {
   event.preventDefault();
