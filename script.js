@@ -1,7 +1,13 @@
 const tarefa = document.getElementById("tarefa");
 const adicionar = document.getElementById("adicionar");
 const listaTarefas = document.getElementById("listaTarefas");
+const tarefasExistentes = listaTarefas.querySelectorAll("li");
 
+tarefasExistentes.forEach(function(tarefaAtual) {
+  const botaoExcluir2 = document.createElement("button");
+  botaoExcluir2.textContent = "Excluir";
+  tarefaAtual.appendChild(botaoExcluir2);
+});
 adicionar.addEventListener("click", function(event) {
   event.preventDefault();
   const textoTarefa = tarefa.value;
