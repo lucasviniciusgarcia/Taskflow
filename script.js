@@ -8,5 +8,5 @@ adicionar.addEventListener("click", function(event) {
  const novaTarefa = document.createElement("li");
 novaTarefa.textContent = textoTarefa;
   listaTarefas.appendChild(novaTarefa);
-  alert("Funcionou!");
+  tarefa.value = "";
 });
