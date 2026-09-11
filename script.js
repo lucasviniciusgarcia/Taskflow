@@ -19,7 +19,10 @@ adicionar.addEventListener("click", function(event) {
   const textoTarefa = tarefa.value;
   if(textoTarefa !== "") {
  const novaTarefa = document.createElement("li");
+    const status =document.createElement("span");
+    status.textContent = "Em andamento";
 novaTarefa.textContent = textoTarefa;
+    novaTarefa.appendChild(status);
   listaTarefas.appendChild(novaTarefa);
   tarefa.value = "";
     const botaoExcluir = document.createElement("button");
