@@ -11,7 +11,7 @@ tarefasExistentes.forEach(function(tarefaAtual) {
     tarefaAtual.remove();
     });
   tarefaAtual.addEventListener("click", function(){
-    tarefaAtual.classList.add("Concluida");
+    tarefaAtual.classList.toggle("concluida");
   });
 });
 adicionar.addEventListener("click", function(event) {
