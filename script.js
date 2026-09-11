@@ -5,8 +5,10 @@ const listaTarefas = document.getElementById("listaTarefas");
 adicionar.addEventListener("click", function(event) {
   event.preventDefault();
   const textoTarefa = tarefa.value;
+  if(textoTarefa !== "") {
  const novaTarefa = document.createElement("li");
 novaTarefa.textContent = textoTarefa;
   listaTarefas.appendChild(novaTarefa);
   tarefa.value = "";
+  }
 });
