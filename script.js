@@ -2,44 +2,53 @@ const tarefa = document.getElementById("tarefa");
 const adicionar = document.getElementById("adicionar");
 const listaTarefas = document.getElementById("listaTarefas");
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
-
-tarefasExistentes.forEach(function(tarefaAtual) {
-  const status = document.createElement("span");
+function alternarStatus(status)  {
+if(status.textContent === "Em andamento") {
+  status.textContent = "Concluída";
+}
+  else {
+    status.textContent = "Em andamento";
+  }
   
-  const botaoExcluir2 = document.createElement("button");
-  botaoExcluir2.textContent = "Excluir";
-  tarefaAtual.appendChild(botaoExcluir2);
-  botaoExcluir2.addEventListener("click", function() {
-    tarefaAtual.remove();
-    });
-  tarefaAtual.addEventListener("click", function(){
-    tarefaAtual.classList.toggle("concluida");
+}
+function criarStatus() {
+const status = document.createElement("span");
+  status.textContent = "Em andamento";
+  return status;
+}
+function criarBotaoExcluir() {
+const botaoExcluir = document.createElement("button");
+  botaoExcluir.textContent = "Excluir";
+  return botaoExcluir;
+}
+function adicionarBotaoExcluir(tarefa) {
+  const botaoExcluir = criarBotaoExcluir();
+  tarefa.appendChild(botaoExcluir);
+  botaoExcluir.addEventListener("click", function() {
+    tarefa.remove();
   });
+}
+tarefasExistentes.forEach(function(tarefaAtual) {
+  const status = criarStatus();
+  tarefaAtual.appendChild(status);
+  status.addEventListener("click", function () {
+    alternarStatus(status);
+  });
+adicionarBotaoExcluir(tarefaAtual);
 });
 adicionar.addEventListener("click", function(event) {
   event.preventDefault();
   const textoTarefa = tarefa.value;
   if(textoTarefa !== "") {
  const novaTarefa = document.createElement("li");
-    const status =document.createElement("span");
-    status.textContent = "Em andamento";
+    const status = criarStatus();
 novaTarefa.textContent = textoTarefa;
     novaTarefa.appendChild(status);
     status.addEventListener("click", function(){
-      if(status.textContent === "Em andamento") {
-        status.textContent = "Concluída";
-      }
-      else {
-    status.textContent = "Em andamento";
-      }
+      alternarStatus(status);
       });
   listaTarefas.appendChild(novaTarefa);
   tarefa.value = "";
-    const botaoExcluir = document.createElement("button");
-    botaoExcluir.textContent = "Excluir";
-    novaTarefa.appendChild(botaoExcluir);
-    botaoExcluir.addEventListener("click", function() {
-      novaTarefa.remove();
-  });
+  adicionarBotaoExcluir(novaTarefa);
   }
 });
