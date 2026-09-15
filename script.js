@@ -15,6 +15,8 @@ for (let dia of diasSemana) {
   elementoDia.textContent = dia;
   cabecalhoDias.appendChild(elementoDia);
 }
+for (let dia = 1; dia <= diasNoMes; dia++) {
+}
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
 if(status.textContent === "Em andamento") {
