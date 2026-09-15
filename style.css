@@ -19,7 +19,8 @@ section {
   background-color: white;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 5px rgba (0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 form {
   display: flex;
@@ -56,4 +57,13 @@ li {
 }
 h2 {
   color: #222222;
+}
+.conteudo-principal {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 600px) {
+  .conteudo-principal {
+    flex-direction: column;
+  }
 }
