@@ -67,3 +67,6 @@ h2 {
     flex-direction: column;
   }
 }
+.area-tarefas {
+  flex: 2;
+}
