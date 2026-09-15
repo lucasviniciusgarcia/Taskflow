@@ -7,8 +7,14 @@ const mesAtual = dataAtual.getMonth();
 const anoAtual = dataAtual.getFullYear();
 const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
 const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
-const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const cabecalhoDias = document.createElement("div");
+calendario.appendChild(cabecalhoDias);
+for (let dia of diasSemana) {
+  const elementoDia = document.createElement("span");
+  elementoDia.textContent = dia;
+  cabecalhoDias.appendChild(elementoDia);
+}
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
 if(status.textContent === "Em andamento") {
