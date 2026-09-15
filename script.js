@@ -1,6 +1,14 @@
 const tarefa = document.getElementById("tarefa");
 const adicionar = document.getElementById("adicionar");
 const listaTarefas = document.getElementById("listaTarefas");
+const calendario = document.getElementById("calendario");
+const dataAtual = new Date();
+const mesAtual = dataAtual.getMonth();
+const anoAtual = dataAtual.getFullYear();
+const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
+const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
+const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+const cabecalhoDias = document.createElement("div");
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
 if(status.textContent === "Em andamento") {
