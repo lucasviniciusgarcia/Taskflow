@@ -16,6 +16,7 @@ for (let dia of diasSemana) {
   cabecalhoDias.appendChild(elementoDia);
 }
 for (let dia = 1; dia <= diasNoMes; dia++) {
+  const elementoDia = document.createElement("span");
 }
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
