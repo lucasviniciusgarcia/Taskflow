@@ -22,6 +22,9 @@ for (let contador  = 0; contador < primeiroDia; contador++) {
 for (let dia = 1; dia <= diasNoMes; dia++) {
   const elementoDia = document.createElement("span");
   elementoDia.textContent = dia;
+  elementoDia.addEventListener("click", function() {
+    console.log(dia);
+  });
   calendario.appendChild(elementoDia);
 }
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
