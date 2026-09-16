@@ -27,6 +27,7 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
   elementoDia.addEventListener("click", function() {
     console.log(dia);
     diaSelecionado = dia;
+    const dataSelecionada = new Date(anoAtual, mesAtual, dia);
     detalhesDia.textContent = dia;
   });
   calendario.appendChild(elementoDia);
