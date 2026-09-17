@@ -34,7 +34,7 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     const dataFormatada = `${diaFormatado}/${mesFormatado}/${anoFormatado}`;
     detalhesDia.textContent = dataFormatada;
     const tituloTarefas = document.createElement("h3");
-    tituloTarefa.textContent = "Tarefas";
+    tituloTarefas.textContent = "Tarefas";
     detalhesDia.appendChild(tituloTarefas);
   });
   calendario.appendChild(elementoDia);
