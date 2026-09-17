@@ -1,4 +1,5 @@
 const tarefa = document.getElementById("tarefa");
+const campoData = document.getElementById("dataTarefa");
 const adicionar = document.getElementById("adicionar");
 const listaTarefas = document.getElementById("listaTarefas");
 const calendario = document.getElementById("calendario");
@@ -28,6 +29,10 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     console.log(dia);
     diaSelecionado = dia;
     const dataSelecionada = new Date(anoAtual, mesAtual, dia);
+    const anoSelecionado = dataSelecionada.getFullYear();
+    const mesSelecionado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
+    const diaSelecionadoFormatado = String(dataSelecionada.getDate()).padStart(2, "0");
+    const dataParaComparar = `${anoSelecionado}-${mesSelecionado}-${diaSelecionadoFormatado}`;
     const diaFormatado = dataSelecionada.getDate();
     const mesFormatado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
     const anoFormatado = dataSelecionada.getFullYear();
@@ -77,8 +82,10 @@ adicionarBotaoExcluir(tarefaAtual);
 adicionar.addEventListener("click", function(event) {
   event.preventDefault();
   const textoTarefa = tarefa.value;
+  const dataTarefa = campoData.value;
   if(textoTarefa !== "") {
  const novaTarefa = document.createElement("li");
+    novaTarefa.setAttribute("data-dia", dataTarefa);
     const status = criarStatus();
 novaTarefa.textContent = textoTarefa;
     novaTarefa.appendChild(status);
