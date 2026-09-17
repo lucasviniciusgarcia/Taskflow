@@ -8,7 +8,7 @@ const anoAtual = dataAtual.getFullYear();
 const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
 const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
 const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-const detalhesDia = document.createElementById("detalhesDia");
+const detalhesDia = document.getElementById("detalhesDia");
 let diaSelecionado = null;
 const cabecalhoDias = document.createElement("div");
 calendario.appendChild(cabecalhoDias);
@@ -28,7 +28,14 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     console.log(dia);
     diaSelecionado = dia;
     const dataSelecionada = new Date(anoAtual, mesAtual, dia);
-    detalhesDia.textContent = dia;
+    const diaFormatado = dataSelecionada.getDate();
+    const mesFormatado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
+    const anoFormatado = dataSelecionada.getFullYear();
+    const dataFormatada = `${diaFormatado}/${mesFormatado}/${anoFormatado}`;
+    detalhesDia.textContent = dataFormatada;
+    const tituloTarefas = document.createElement("h3");
+    tituloTarefa.textContent = "Tarefas";
+    detalhesDia.appendChild(tituloTarefas);
   });
   calendario.appendChild(elementoDia);
 }
