@@ -33,6 +33,9 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     const mesSelecionado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
     const diaSelecionadoFormatado = String(dataSelecionada.getDate()).padStart(2, "0");
     const dataParaComparar = `${anoSelecionado}-${mesSelecionado}-${diaSelecionadoFormatado}`;
+    const tarefasDosDias = listaTarefas.querySelectorAll(`[data-dia="${dataParaComparar}"]`);
+    tarefasDosDias.forEach(function(tarefaDoDia) {
+    });
     const diaFormatado = dataSelecionada.getDate();
     const mesFormatado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
     const anoFormatado = dataSelecionada.getFullYear();
