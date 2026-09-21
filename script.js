@@ -11,6 +11,7 @@ let primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
 const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const detalhesDia = document.getElementById("detalhesDia");
 let diaSelecionado = null;
+function renderizarCalendario() {
 const cabecalhoDias = document.createElement("div");
 calendario.appendChild(cabecalhoDias);
 for (let dia of diasSemana) {
@@ -50,6 +51,8 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
   });
   calendario.appendChild(elementoDia);
 }
+}
+renderizarCalendario();
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
 if(status.textContent === "Em andamento") {
