@@ -11,7 +11,15 @@ let primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
 const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const detalhesDia = document.getElementById("detalhesDia");
 let diaSelecionado = null;
+const proximoMes = document.getElementById("proximoMes");
+proximoMes.addEventListener("click", function() {
+mesAtual = mesAtual + 1;
+  diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
+  primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
+  renderizarCalendario();
+});
 function renderizarCalendario() {
+  calendario.innerHTML = "";
 const cabecalhoDias = document.createElement("div");
 calendario.appendChild(cabecalhoDias);
 for (let dia of diasSemana) {
