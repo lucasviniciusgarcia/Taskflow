@@ -48,15 +48,14 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     detalhesDia.textContent = dataFormatada;
     const dataParaComparar = `${anoSelecionado}-${mesSelecionado}-${diaSelecionadoFormatado}`;
     const tarefasDosDias = listaTarefas.querySelectorAll(`[data-dia="${dataParaComparar}"]`);
+    const tituloTarefas = document.createElement("h3");
+    tituloTarefas.textContent = "Tarefas";
+    detalhesDia.appendChild(tituloTarefas);
     tarefasDosDias.forEach(function(tarefaDoDia) {
       const tarefaDetalhe = document.createElement("li");
       tarefaDetalhe.textContent = tarefaDoDia.textContent;
       detalhesDia.appendChild(tarefaDetalhe);
-    });
-    
-    const tituloTarefas = document.createElement("h3");
-    tituloTarefas.textContent = "Tarefas";
-    detalhesDia.appendChild(tituloTarefas);
+    });  
   });
   calendario.appendChild(elementoDia);
 }
