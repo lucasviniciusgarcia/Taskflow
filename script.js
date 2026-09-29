@@ -41,6 +41,11 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     const anoSelecionado = dataSelecionada.getFullYear();
     const mesSelecionado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
     const diaSelecionadoFormatado = String(dataSelecionada.getDate()).padStart(2, "0");
+    const diaFormatado = dataSelecionada.getDate();
+    const mesFormatado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
+    const anoFormatado = dataSelecionada.getFullYear();
+    const dataFormatada = `${diaFormatado}/${mesFormatado}/${anoFormatado}`;
+    detalhesDia.textContent = dataFormatada;
     const dataParaComparar = `${anoSelecionado}-${mesSelecionado}-${diaSelecionadoFormatado}`;
     const tarefasDosDias = listaTarefas.querySelectorAll(`[data-dia="${dataParaComparar}"]`);
     tarefasDosDias.forEach(function(tarefaDoDia) {
@@ -48,11 +53,7 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
       tarefaDetalhe.textContent = tarefaDoDia.textContent;
       detalhesDia.appendChild(tarefaDetalhe);
     });
-    const diaFormatado = dataSelecionada.getDate();
-    const mesFormatado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
-    const anoFormatado = dataSelecionada.getFullYear();
-    const dataFormatada = `${diaFormatado}/${mesFormatado}/${anoFormatado}`;
-    detalhesDia.textContent = dataFormatada;
+    
     const tituloTarefas = document.createElement("h3");
     tituloTarefas.textContent = "Tarefas";
     detalhesDia.appendChild(tituloTarefas);
