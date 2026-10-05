@@ -10,6 +10,21 @@ let diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
 let primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
 const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const detalhesDia = document.getElementById("detalhesDia");
+const mesAno = document.getElementById("mesAno")
+const nomesMeses =  [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro"
+  ];
 let diaSelecionado = null;
 const proximoMes = document.getElementById("proximoMes");
 const mesAnterior = document.getElementById("mesAnterior");
@@ -34,6 +49,7 @@ mesAtual = mesAtual + 1;
   renderizarCalendario();
 });
 function renderizarCalendario() {
+  mesAno.textContent = '${nomesMeses[mesAtual]} ${anoAtual}';
   calendario.innerHTML = "";
 const cabecalhoDias = document.createElement("div");
 calendario.appendChild(cabecalhoDias);
