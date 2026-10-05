@@ -49,7 +49,8 @@ mesAtual = mesAtual + 1;
   renderizarCalendario();
 });
 function renderizarCalendario() {
-  mesAno.textContent = '${nomesMeses[mesAtual]} ${anoAtual}';
+  mesAno.textContent = `${nomesMeses[mesAtual]} ${anoAtual}`
+  ;
   calendario.innerHTML = "";
 const cabecalhoDias = document.createElement("div");
 calendario.appendChild(cabecalhoDias);
