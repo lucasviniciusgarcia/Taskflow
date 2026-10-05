@@ -4,6 +4,8 @@ const adicionar = document.getElementById("adicionar");
 const listaTarefas = document.getElementById("listaTarefas");
 const calendario = document.getElementById("calendario");
 const dataAtual = new Date();
+const tarefasSalvas = localStorage.getItem("tarefas");
+console.log(tarefasSalvas);
 let mesAtual = dataAtual.getMonth();
 let anoAtual = dataAtual.getFullYear();
 let diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
