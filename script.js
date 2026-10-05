@@ -14,6 +14,10 @@ let diaSelecionado = null;
 const proximoMes = document.getElementById("proximoMes");
 proximoMes.addEventListener("click", function() {
 mesAtual = mesAtual + 1;
+  if (mesAtual === 12) {
+    mesAtual = 0;
+    anoAtual = anoAtual + 1;
+  }
   diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
   primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
   renderizarCalendario();
