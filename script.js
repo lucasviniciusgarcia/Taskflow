@@ -48,6 +48,11 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     detalhesDia.textContent = dataFormatada;
     const dataParaComparar = `${anoSelecionado}-${mesSelecionado}-${diaSelecionadoFormatado}`;
     const tarefasDosDias = listaTarefas.querySelectorAll(`[data-dia="${dataParaComparar}"]`);
+    if (tarefasDosDias.length === 0) {
+    const semTarefas = document.createElement("p");
+      semTarefas.textContent = "Sem tarefas";
+      detalhesDia.appendChild(semTarefas);
+    }
     const tituloTarefas = document.createElement("h3");
     tituloTarefas.textContent = "Tarefas";
     detalhesDia.appendChild(tituloTarefas);
@@ -69,7 +74,6 @@ if(status.textContent === "Em andamento") {
   else {
     status.textContent = "Em andamento";
   }
-  
 }
 function criarStatus() {
 const status = document.createElement("span");
