@@ -136,7 +136,7 @@ adicionar.addEventListener("click", function(event) {
   event.preventDefault();
   const textoTarefa = tarefa.value;
   const dataTarefa = campoData.value;
-  if(textoTarefa !== "") {
+  if(textoTarefa !== "" && dataTarefa !== "") {
  const novaTarefa = document.createElement("li");
     novaTarefa.setAttribute("data-dia", dataTarefa);
     const status = criarStatus();
