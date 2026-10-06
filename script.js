@@ -102,12 +102,21 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
 renderizarCalendario();
 const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
+  const tarefasSalvas = localStorage.getItem("tarefas");
+  let tarefas = JSON.parse(tarefasSalvas);
+  const tarefa = status.parentElement;
+  const idTarefa = tarefa.getAttribute("data-id");
+  const indice = tarefas.findIndex(function(tarefaSalva) {
+    return tarefaSalva.id === Number(idTarefa);
+  });
 if(status.textContent === "Em andamento") {
   status.textContent = "Concluída";
-}
-  else {
+  tarefas[indice].status = "Concluída";
+} else {
     status.textContent = "Em andamento";
+  tarefas[indice].status = "Em andamento";
   }
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 function criarStatus() {
 const status = document.createElement("span");
@@ -152,6 +161,7 @@ adicionar.addEventListener("click", function(event) {
     }
  const novaTarefa = document.createElement("li");
     const novaTarefaDados = {
+      id: Date.now(),
 texto: textoTarefa,
 data: dataTarefa,
 status: "Em andamento"
@@ -160,6 +170,7 @@ status: "Em andamento"
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
     const tarefaTexto = JSON.stringify(novaTarefaDados);
     novaTarefa.setAttribute("data-dia", dataTarefa);
+    novaTarefa.setAttribute("data-id", novaTarefaDados.id);
     const status = criarStatus();
 novaTarefa.textContent = textoTarefa;
     novaTarefa.appendChild(status);
@@ -179,6 +190,7 @@ novaTarefa.textContent = textoTarefa;
      tarefas.forEach(function(tarefa) {
 const novaTarefa = document.createElement("li");
        novaTarefa.textContent = tarefa.texto;
+       novaTarefa.setAttribute("data-id", tarefa.id);
        if (!tarefa.status) {
          tarefa.status = "Em andamento";
        }
