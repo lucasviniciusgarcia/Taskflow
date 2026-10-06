@@ -123,6 +123,13 @@ function adicionarBotaoExcluir(tarefa) {
   const botaoExcluir = criarBotaoExcluir();
   tarefa.appendChild(botaoExcluir);
   botaoExcluir.addEventListener("click", function() {
+    const tarefasSalvas = localStorage.getItem("tarefas");
+    let tarefas = JSON.parse(tarefasSalvas);
+    const indice = tarefas.findIndex(function(tarefaSalva) {
+return tarefaSalva.texto === tarefa.textContent;   
+    });
+     tarefas.splice(indice, 1);
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
     tarefa.remove();
   });
 }
