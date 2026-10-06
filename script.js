@@ -139,7 +139,18 @@ adicionar.addEventListener("click", function(event) {
   const textoTarefa = tarefa.value;
   const dataTarefa = campoData.value;
   if(textoTarefa !== "" && dataTarefa !== "") {
+    let tarefas = [];
+    if (tarefasSalvas) {
+      tarefas = JSON.parse(tarefasSalvas);
+    }
  const novaTarefa = document.createElement("li");
+    const novaTarefaDados = {
+texto: textoTarefa,
+      data: dataTarefa
+    };
+    tarefas.push(novaTarefaDados);
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    const tarefaTexto = JSON.stringify(novaTarefaDados);
     novaTarefa.setAttribute("data-dia", dataTarefa);
     const status = criarStatus();
 novaTarefa.textContent = textoTarefa;
@@ -152,3 +163,16 @@ novaTarefa.textContent = textoTarefa;
   adicionarBotaoExcluir(novaTarefa);
   }
 });
+ function carregarTarefas() {
+   const tarefasSalvas = localStorage.getItem("tarefas");
+   let tarefas = [];
+   if (tarefasSalvas) {
+   tarefas = JSON.parse(tarefasSalvas);
+     tarefas.forEach(function(tarefa) {
+const novaTarefa = document.createElement("li");
+       novaTarefa.textContent = tarefa.texto;
+       listaTarefas.appendChild(novaTarefa);
+     });
+   }
+    }
+carregarTarefas();
