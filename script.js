@@ -182,6 +182,7 @@ const novaTarefa = document.createElement("li");
          alternarStatus(status);
        });
        listaTarefas.appendChild(novaTarefa);
+       adicionarBotaoExcluir(novaTarefa);
      });
    }
     }
