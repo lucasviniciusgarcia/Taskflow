@@ -172,6 +172,9 @@ novaTarefa.textContent = textoTarefa;
      tarefas.forEach(function(tarefa) {
 const novaTarefa = document.createElement("li");
        novaTarefa.textContent = tarefa.texto;
+       if (!tarefa.status) {
+         tarefa.status = "Em andamento";
+       }
        const status = criarStatus();
        status.textContent = tarefa.status;
        novaTarefa.appendChild(status);
