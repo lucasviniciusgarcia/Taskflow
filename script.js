@@ -191,6 +191,7 @@ novaTarefa.textContent = textoTarefa;
 const novaTarefa = document.createElement("li");
        novaTarefa.textContent = tarefa.texto;
        novaTarefa.setAttribute("data-id", tarefa.id);
+       novaTarefa.setAttribute("data-dia", tarefa.data);
        if (!tarefa.status) {
          tarefa.status = "Em andamento";
        }
