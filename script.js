@@ -146,7 +146,8 @@ adicionar.addEventListener("click", function(event) {
  const novaTarefa = document.createElement("li");
     const novaTarefaDados = {
 texto: textoTarefa,
-      data: dataTarefa
+data: dataTarefa,
+status: "Em andamento"
     };
     tarefas.push(novaTarefaDados);
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
@@ -171,6 +172,12 @@ novaTarefa.textContent = textoTarefa;
      tarefas.forEach(function(tarefa) {
 const novaTarefa = document.createElement("li");
        novaTarefa.textContent = tarefa.texto;
+       const status = criarStatus();
+       status.textContent = tarefa.status;
+       novaTarefa.appendChild(status);
+       status.addEventListener("click", function() {
+         alternarStatus(status);
+       });
        listaTarefas.appendChild(novaTarefa);
      });
    }
