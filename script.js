@@ -134,12 +134,15 @@ function adicionarBotaoExcluir(tarefa) {
   const botaoExcluir = criarBotaoExcluir();
   tarefa.appendChild(botaoExcluir);
   botaoExcluir.addEventListener("click", function() {
+    const idTarefa = tarefa.getAttribute("data-id");
     const tarefasSalvas = localStorage.getItem("tarefas");
     let tarefas = JSON.parse(tarefasSalvas);
     const indice = tarefas.findIndex(function(tarefaSalva) {
-return tarefaSalva.texto === tarefa.textContent;   
+      return tarefaSalva.id === Number(idTarefa);
     });
+    if (indice !== -1) {
      tarefas.splice(indice, 1);
+    }
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
     tarefa.remove();
   });
