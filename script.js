@@ -157,6 +157,7 @@ adicionar.addEventListener("click", function(event) {
   const textoTarefa = tarefa.value;
   const dataTarefa = campoData.value;
   if(textoTarefa !== "" && dataTarefa !== "") {
+    const tarefasSalvas = localStorage.getItem("tarefas");
     let tarefas = [];
     if (tarefasSalvas) {
       tarefas = JSON.parse(tarefasSalvas);
