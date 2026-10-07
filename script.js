@@ -122,7 +122,7 @@ if(status.textContent === "Em andamento") {
   localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 function criarStatus() {
-const status = document.createElement("span");
+const status = document.createElement("button");
   status.textContent = "Em andamento";
   return status;
 }
