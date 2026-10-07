@@ -94,7 +94,13 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     }
     tarefasDosDias.forEach(function(tarefaDoDia) {
       const tarefaDetalhe = document.createElement("li");
-      tarefaDetalhe.textContent = tarefaDoDia.textContent;
+      const idTarefa = tarefaDoDia.getAttribute("data-id");
+      const tarefasSalvas = localStorage.getItem("tarefas");
+      const tarefas = JSON.parse(tarefasSalvas);
+      const tarefaEncontrada = tarefas.find(function(tarefaSalva) {
+return tarefaSalva.id === Number(idTarefa);
+      });
+      tarefaDetalhe.textContent = tarefaEncontrada.texto;
       detalhesDia.appendChild(tarefaDetalhe);
     });  
   });
