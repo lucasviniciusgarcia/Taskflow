@@ -4,8 +4,6 @@ const adicionar = document.getElementById("adicionar");
 const listaTarefas = document.getElementById("listaTarefas");
 const calendario = document.getElementById("calendario");
 const dataAtual = new Date();
-const tarefasSalvas = localStorage.getItem("tarefas");
-console.log(tarefasSalvas);
 let mesAtual = dataAtual.getMonth();
 let anoAtual = dataAtual.getFullYear();
 let diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
@@ -69,7 +67,6 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
   const elementoDia = document.createElement("span");
   elementoDia.textContent = dia;
   elementoDia.addEventListener("click", function() {
-    console.log(dia);
     diaSelecionado = dia;
     const dataSelecionada = new Date(anoAtual, mesAtual, dia);
     const anoSelecionado = dataSelecionada.getFullYear();
@@ -82,8 +79,6 @@ for (let dia = 1; dia <= diasNoMes; dia++) {
     detalhesDia.textContent = dataFormatada;
     const dataParaComparar = `${anoSelecionado}-${mesSelecionado}-${diaSelecionadoFormatado}`;
     const tarefasDosDias = listaTarefas.querySelectorAll(`[data-dia="${dataParaComparar}"]`);
-    console.log(dataParaComparar);
-    console.log(tarefasDosDias);
     const tituloTarefas = document.createElement("h3");
     tituloTarefas.textContent = "Tarefas";
     detalhesDia.appendChild(tituloTarefas);
@@ -153,14 +148,6 @@ function adicionarBotaoExcluir(tarefa) {
     tarefa.remove();
   });
 }
-tarefasExistentes.forEach(function(tarefaAtual) {
-  const status = criarStatus();
-  tarefaAtual.appendChild(status);
-  status.addEventListener("click", function () {
-    alternarStatus(status);
-  });
-adicionarBotaoExcluir(tarefaAtual);
-});
 adicionar.addEventListener("click", function(event) {
   event.preventDefault();
   const textoTarefa = tarefa.value;
@@ -180,7 +167,6 @@ status: "Em andamento"
     };
     tarefas.push(novaTarefaDados);
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
-    const tarefaTexto = JSON.stringify(novaTarefaDados);
     novaTarefa.setAttribute("data-dia", dataTarefa);
     novaTarefa.setAttribute("data-id", novaTarefaDados.id);
     const status = criarStatus();
