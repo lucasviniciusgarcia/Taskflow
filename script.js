@@ -103,7 +103,6 @@ return tarefaSalva.id === Number(idTarefa);
 }
 }
 renderizarCalendario();
-const tarefasExistentes = listaTarefas.querySelectorAll("li");
 function alternarStatus(status)  {
   const tarefasSalvas = localStorage.getItem("tarefas");
   let tarefas = JSON.parse(tarefasSalvas);
@@ -112,6 +111,7 @@ function alternarStatus(status)  {
   const indice = tarefas.findIndex(function(tarefaSalva) {
     return tarefaSalva.id === Number(idTarefa);
   });
+  if (indice !== -1) {
 if(status.textContent === "Em andamento") {
   status.textContent = "Concluída";
   tarefas[indice].status = "Concluída";
@@ -120,6 +120,7 @@ if(status.textContent === "Em andamento") {
   tarefas[indice].status = "Em andamento";
   }
   localStorage.setItem("tarefas", JSON.stringify(tarefas));
+  }
 }
 function criarStatus() {
 const status = document.createElement("button");
