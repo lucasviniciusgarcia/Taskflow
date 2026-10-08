@@ -78,5 +78,5 @@ background-color: #4169E1;
   height: 50px;
   background-color: #FFD700;
   border-radius: 50%;
-  clip-path: polygon(100% 0%, 50% 50%, 100% 100%, 0% 50%);
+  clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
 }
