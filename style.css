@@ -70,3 +70,6 @@ h2 {
 .area-tarefas {
   flex: 1;
 }
+.selecionado {
+background-color: #4169E1;
+}
