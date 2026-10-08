@@ -201,6 +201,7 @@ const novaTarefa = document.createElement("li");
        novaTarefa.setAttribute("data-dia", tarefa.data);
        if (!tarefa.status) {
          tarefa.status = "Em andamento";
+         localStorage.setItem("tarefas", JSON.stringify(tarefas));
        }
        const status = criarStatus();
        status.textContent = tarefa.status;
