@@ -106,6 +106,8 @@ header h1 {
   color: #FFD700;
   font-weight: bold;
   text-shadow: 3px 3px #2121DE;
+  letter-spacing: 3px;
+  font-family: monospace;
 }
 .cabecalho {
   display: flex;
