@@ -184,6 +184,7 @@ novaTarefa.textContent = textoTarefa;
       });
   listaTarefas.appendChild(novaTarefa);
   tarefa.value = "";
+    campoData.value = "";
   adicionarBotaoExcluir(novaTarefa);
   }
 });
