@@ -74,7 +74,6 @@ const diaAnterior = calendario.querySelector(`[data-dia="${diaSelecionado}"]`);
   }
     elementoDia.classList.add("selecionado");
     diaSelecionado = dia;
-  });
     const dataSelecionada = new Date(anoAtual, mesAtual, dia);
     const anoSelecionado = dataSelecionada.getFullYear();
     const mesSelecionado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
