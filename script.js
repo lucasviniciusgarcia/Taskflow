@@ -101,7 +101,8 @@ const diaAnterior = calendario.querySelector(`[data-dia="${diaSelecionado}"]`);
       const tarefaEncontrada = tarefas.find(function(tarefaSalva) {
 return tarefaSalva.id === Number(idTarefa);
       });
-      tarefaDetalhe.textContent = tarefaEncontrada.texto;
+      const statusTarefa = tarefaEncontrada.status;
+      tarefaDetalhe.textContent = `${tarefaEncontrada.texto} - ${statusTarefa}`;
       detalhesDia.appendChild(tarefaDetalhe);
     });  
   });
