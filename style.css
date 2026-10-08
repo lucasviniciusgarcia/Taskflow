@@ -95,9 +95,10 @@ background-color: #4169E1;
   content: "";
   width: 8px;
   height: 8px;
-  background-color: #222;
+  background-color: white;
   position: absolute;
   top: 8px;
   left: 20px;
   border-radius: 50%;
+  box-shadow: 0 0 0 3px #222;
 }
