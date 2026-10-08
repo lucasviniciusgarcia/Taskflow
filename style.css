@@ -131,3 +131,8 @@ header h1 {
   top: 100px;
   left: 100px;
 }
+.vertical {
+  width: 20px;
+  height: 200px;
+  left: 600px;
+}
