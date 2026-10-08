@@ -91,3 +91,13 @@ background-color: #4169E1;
    top: 7px;
    clip-path: polygon(0% 100%, 100% 0%, 100% 100%)
   }
+.pacman::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #222;
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  border-radius: 50%;
+}
