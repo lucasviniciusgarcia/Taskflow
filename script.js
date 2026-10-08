@@ -66,8 +66,15 @@ for (let contador  = 0; contador < primeiroDia; contador++) {
 for (let dia = 1; dia <= diasNoMes; dia++) {
   const elementoDia = document.createElement("span");
   elementoDia.textContent = dia;
+  elementoDia.setAttribute("data-dia", dia);
   elementoDia.addEventListener("click", function() {
+    if (diaSelecionado !== null) {
+const diaAnterior = calendario.querySelector(`[data-dia="${diaSelecionado}"]`);
+      diaAnterior.classList.remove("selecionado");
+  }
+    elementoDia.classList.add("selecionado");
     diaSelecionado = dia;
+  });
     const dataSelecionada = new Date(anoAtual, mesAtual, dia);
     const anoSelecionado = dataSelecionada.getFullYear();
     const mesSelecionado = String(dataSelecionada.getMonth() + 1).padStart(2, "0");
