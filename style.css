@@ -123,3 +123,11 @@ header h1 {
   padding: 15px;
   position: relative;
 }
+.cenario-arcade {
+  position: absolute;
+  inset: 0;
+  border: 3px solid #2121DE;
+  border-radius: 12px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
